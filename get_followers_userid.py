@@ -20,26 +20,6 @@ from random import shuffle
 
 
 # ------------------------------------------------------------------------------------
-import socks
-import socket
-import stem.process
-
-SOCKS_PORT=7000# You can change the port number
-
-tor_process = stem.process.launch_tor_with_config(
-    config = {
-        'SocksPort': str(SOCKS_PORT),
-    },
-)
-
-socks.setdefaultproxy(proxy_type=socks.PROXY_TYPE_SOCKS5,
-                      addr="127.0.0.1", #theres a ',' change it to '.' -- linkedin was being glitchy
-                      port=SOCKS_PORT)
-socket.socket = socks.socksocket
-
-#Write your scraping code here -- I use BeautifulSoup for scraping
-
-tor_process.kill()
 
 # ------------------------------------------------------------------------------------
 
@@ -112,9 +92,6 @@ def get_userid_from_username(username):
 #---- Config ----
 
 insta_account = 'l30.artwork'
-
-
-
 
 now = datetime.datetime.now()
 date_time = str(now.month) + str(now.day)+ str(now.year) +"_" +str(now.hour) + str(now.minute) + str(now.second)
