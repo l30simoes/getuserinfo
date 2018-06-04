@@ -259,7 +259,7 @@ def handle(userid):
 			category = 'general user'
 
 		wl = wl + str(username) + ","
-		wl = wl + full_name.encode('ascii', 'ignore') + ","
+		wl = wl + full_name + ","
 		wl = wl + str(userid) + ","
 		wl = wl + category + ","
 		wl = wl + public_email + ","
