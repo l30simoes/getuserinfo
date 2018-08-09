@@ -219,7 +219,7 @@ def handle(userid):
 	sleepTime = 60
 	pause = 3
 
-	resp = removeUni(bot.get_user_info(userid))
+	resp = bot.get_user_info(userid)
 
 
 	if (resp == '429') or (resp=='400'):
@@ -259,7 +259,7 @@ def handle(userid):
 			category = 'general user'
 
 		wl = wl + str(username) + ","
-		wl = wl + full_name + ","
+		wl = wl + removeUni(full_name) + ","
 		wl = wl + str(userid) + ","
 		wl = wl + category + ","
 		wl = wl + public_email + ","
