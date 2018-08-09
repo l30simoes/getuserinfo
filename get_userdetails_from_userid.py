@@ -219,7 +219,7 @@ def handle(userid):
 	sleepTime = 60
 	pause = 3
 
-	resp = bot.get_user_info(userid)
+	resp = removeUni(bot.get_user_info(userid))
 
 
 	if (resp == '429') or (resp=='400'):
