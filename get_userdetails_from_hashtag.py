@@ -219,7 +219,7 @@ def handle(hashtag):
 
 	for i in range(len(users)):
 		userid = users[i]
-		resp = bot.get_user_info(userid)
+		resp = removeUni(bot.get_user_info(userid))
 
 		if (resp == '429') or (resp=='400'):
 			print ("Error" + resp +  " - Too many requests! // " + str(sleepTime) + " seconds standby...")
