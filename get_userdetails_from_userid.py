@@ -47,7 +47,6 @@ def repair(brokenjson):
     return invalid_escape.sub(replace_with_byte, brokenjson)
 
 def removeUni (str_content):
-
 	ls = len (str_content)
 	str_content = str_content.replace('\n', ' ')
 	uniArray = []
@@ -93,7 +92,6 @@ def get_userid_from_username(username):
 
 
 def get_url_from_bio(bio):
-
 	match = re.search(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', bio)
 
 	if match is None:
@@ -145,7 +143,6 @@ def get_fb_email(url):
 	return email
 
 def get_user_info(user_id):
-
 	sUrl = "http://i.instagram.com/api/v1/users/" + str(user_id) + "/info/"
 	rUrl = session.get(sUrl) # Response URL
 
@@ -164,7 +161,6 @@ def get_user_info(user_id):
 		return data
 
 def check_user(user_id):
-
 	user_info = bot.get_user_info(user_id)
 
 	# user_info = get_user_info(user_id)
@@ -189,7 +185,6 @@ def ftp_login():
 	return ftp
 
 def read_ftp_file (folder, filename):
-
 	ftp = ftp_login()
 	ftp.cwd(folder)
 	# ftp.retrlines('LIST')
