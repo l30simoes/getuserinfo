@@ -63,7 +63,6 @@ def removeUni (str_content):
 
 	return (str_content)
 
-
 def get_userid_from_username(username):
 	# sUrl = "http://www.instagram.com/%s/?__a=1" % (str(username.rstrip()))
 	sUrl = "https://apinsta.herokuapp.com/u/%s"  % (str(username.rstrip()))
@@ -101,7 +100,6 @@ def get_url_from_bio(bio):
 		url = ''
 	else:
 		url = match.group(0)
-
 	return url
 
 def get_item_json_resp(resp, item):
@@ -170,17 +168,12 @@ def check_user(user_id):
 	user_info = bot.get_user_info(user_id)
 
 	# user_info = get_user_info(user_id)
-
 	# print (json.dumps(user_info))
-
 
 	if "'category':" in str(user_info):
 		return json.dumps(user_info['category'])
 	else:
 		return "none"
-
-
-
 
 #---- Config ----
 
@@ -220,7 +213,6 @@ def handle(userid):
 	pause = 3
 
 	resp = bot.get_user_info(userid)
-
 
 	if (resp == '429') or (resp=='400'):
 		print ("Error" + resp +  " - Too many requests! // " + str(sleepTime) + " seconds standby...")
@@ -269,7 +261,7 @@ def handle(userid):
 		wl = wl + external_url
 		wl = wl + "\n"
 
-		write_line = wl.encode()
+		write_line = removeUni(wl.encode())
 
 		time.sleep(pause)
 
@@ -289,8 +281,6 @@ def handle(userid):
 	ftp.storlines('STOR ' + output_filename, content)
 
 	ftp.close()
-
-
 
 def check_if_folder_exists(directory_name, ftp):
 
