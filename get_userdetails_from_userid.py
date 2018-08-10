@@ -256,7 +256,7 @@ def handle(userid):
 		wl = wl + external_url
 		wl = wl + "\n"
 
-		write_line = removeUni(wl.encode())
+		write_line = wl.encode()
 
 		time.sleep(pause)
 
