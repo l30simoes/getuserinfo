@@ -174,7 +174,7 @@ def check_user(user_id):
 #---- Config ----
 
 now = datetime.datetime.now()
-date_time = str(now.month) + str(now.day)+ str(now.year) +"_" +str(now.hour) + str(now.minute) + str(now.second)
+date_time = str(now.month) + str(now.day)+ str(now.year) + "_" + str(now.hour) + "-" + str(now.minute) + "-" + str(now.second)
 
 def ftp_login():
 	ftp = ftplib.FTP('files.000webhost.com')
