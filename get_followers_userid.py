@@ -98,7 +98,7 @@ date_time = str(now.month) + str(now.day)+ str(now.year) +"_" +str(now.hour) + s
 
 output_filename = insta_account + "_userid_followers_" + date_time + ".txt"
 
-user_id = get_userid_from_username(insta_account)
+user_id = bot.get_userid_from_username(insta_account)
 
 users = bot.get_user_followers(user_id)
 
